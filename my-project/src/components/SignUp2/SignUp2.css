@@ -1,0 +1,14 @@
+.form-center{
+    height: 500px;
+    width: 400px;
+    background: black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+.lblstyle{
+    color: white;
+}
