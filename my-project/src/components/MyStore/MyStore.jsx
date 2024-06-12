@@ -13,6 +13,7 @@ import instaIcons from '../images/instagramIcons.png'
 import fbIcons from '../images/facebookIcons.png'
 import { CiHeart } from "react-icons/ci";
 import BodyScroll from "../BodyScroll/BodyScroll";
+import toast from "react-hot-toast";
 
 export default function MyStore() {
 
@@ -28,6 +29,7 @@ export default function MyStore() {
     console.log("wish btn clicked");
     if (signIn.length === 0) {
       alert("SignIn First")
+      nav('/SignIn')
     }
     else {
       if (likeProducts.includes(products)) {
@@ -46,7 +48,7 @@ export default function MyStore() {
   function clicksForAddCart(products) {
 
     if (signIn.length === 0) {
-      alert("SignIn First")
+      nav('/SignIn')
     }
     else {
       if (cartProducts.includes(products)) {
@@ -76,7 +78,7 @@ export default function MyStore() {
     const newA = [...signIn]
     newA.pop()
     setSignIn(newA)
-    alert("Logout Successfully")
+    toast.success("Logout Successfully")
   }
 
   function Search() {

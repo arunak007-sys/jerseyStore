@@ -24,11 +24,11 @@ import Liverpool from './components/ShopByTeams/Liverpool';
 import Bayern from './components/ShopByTeams/Bayern';
 import Alnassar from './components/ShopByTeams/Alnassar';
 import Barcelona from './components/ShopByTeams/Barcelona';
-import SignUp2 from './components/SignUp2/SignUp2';
 import ProductDisplay from './components/ProductDisplay/ProductDisplay';
 import SearchPage from './components/SearchPage/SearchPage';
 import ManCity from './components/ShopByTeams/ManCity';
 import UsersPage from './components/AdminPage/UsersPage';
+import {Toaster} from 'react-hot-toast'
 
 function App() {
   // const [myPlayers,setMyPlayers] =useState(myPlayersData)
@@ -124,7 +124,7 @@ function App() {
           <Route path='/Barcelona' element={<Barcelona/>}/> 
           <Route path='/ManchesterCity' element={<ManCity/>}/> 
 
-          <Route path='/SignUp2' element={<SignUp2/>}/> 
+  
 
           {/* Product Display */}
           <Route path='/ProductDisplay' element={<ProductDisplay/>}/> 
@@ -134,6 +134,7 @@ function App() {
           <Route path='/UsersPage' element={<UsersPage/>}/> 
 
         </Routes>
+        <Toaster />
         </myContext.Provider>
       </BrowserRouter>
     </div>

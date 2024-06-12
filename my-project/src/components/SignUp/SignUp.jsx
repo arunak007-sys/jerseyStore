@@ -4,6 +4,7 @@ import lionImage from "../images/ar7.jpeg";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { myContext } from "../context/context";
+import toast from "react-hot-toast";
 
 export default function SignUp() {
   const nav = useNavigate();
@@ -28,63 +29,58 @@ export default function SignUp() {
     const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
     if (userName === null || userName === "") {
-      alert("Name can't be blank");
+      toast.error("Name can't be blank");
     }
     if (email === "") {
-      alert("Email can't be blank")
+      toast.error("Email can't be blank")
     }
     else {
       if (email.match(validRegex)) {
         // nav('/SignIn')
       }
       else {
-        alert("Ivalid email address")
+        toast.error("Ivalid email address")
       }
     }
 
 
 
     if (password === "") {
-      alert("Password can't be blank")
+      toast.error("Password can't be blank")
     }
     else if (password.length < 6) {
-      alert("Password must be at least 6 characters long.");
+      toast.error("Password must be at least 6 characters long.");
     }
     // At least one uppercase letter
     else if (!/[A-Z]/.test(password)) {
-      alert("At least one uppercase letter")
+      toast.error("At least one uppercase letter")
     }
 
     // At least one lowercase letter
     else if (!/[a-z]/.test(password)) {
-      alert("At least one lowercase letter")
+      toast.error("At least one lowercase letter")
     }
 
     // At least one digit
     else if (!/\d/.test(password)) {
-      alert("At least one digit")
+      toast.error("At least one digit")
     }
 
     // At least one special character
     else if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
-      alert("At least special character")
+      toast.error("At least special character")
     }
     else {
       if (confPassword === "") {
-        alert("conf Password can't be null")
+        toast.error("conf Password can't be null")
       }
       else {
         if (password !== confPassword) {
-          alert("Password must be same")
+          toast.error("Password must be same")
         }
         else {
           setSignsUps([...signsUps, { userName, email, password, confPassword }]);
-          
-          // setUserName(null)
-          // setEmail(null)
-          // setPassword(null)
-          // setConfPassword(null)
-          alert("valid user")
+          toast.success("valid user")
           nav('/SignIn')
         }
       }

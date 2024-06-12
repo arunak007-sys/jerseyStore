@@ -4,6 +4,7 @@ import lionImage from "../images/ar7.jpeg";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { myContext } from "../context/context";
+import toast from "react-hot-toast";
 export default function SignIn() {
   const nav = useNavigate();
 
@@ -26,7 +27,7 @@ export default function SignIn() {
         alert("You are banned, you cannot logIn")
       }
       else {
-        alert("Login successfull !!!,", email)
+        toast.success("Login successfull !!!,", email)
         setSignIn([...signIn, { newEmail, newPassword }])
         setNewEmail(null)
         setNewPassword(null)
@@ -35,7 +36,7 @@ export default function SignIn() {
       }
     }
     else {
-      alert("Invalid email adrress or password")
+      toast.error("Invalid email adrress or password")
 
     }
     // console.log("UserData",signsUps)
